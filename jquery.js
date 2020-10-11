@@ -10,9 +10,9 @@
 function hourTracker() {
     // using third party API //
         let currentHour = moment().hour();
-    // setting a loop up for the time-block //
+    // setting a loop up for time-block //
             $(".time-block").each(function(){
-                // giving the blockHour an actual number & diving hour string into an array //
+                // giving the blockHour an actual number & dividing hour string into an array //
                 let blockHour = parseInt($(this).attr("id").split("hour")[1]);
             
     // Color-coordinating hours (connecting CSS file to display on page through if and else statements)
@@ -33,26 +33,20 @@ function hourTracker() {
             }
             
             })
-        //calling the function//
+        // calling the function //
         } hourTracker();
 
 $(document).ready(function() {
-
-    
-
-
-
-    // Displaying of Current Day at the Top of Page
+    // Displaying of Current Day in the head
         $("#currentDay").text(moment().format("MMMM Do YYYY"));
     // Giving the save button a click event listener 
         $(".saveBtn").on("click", function (){
-            //setting data input
-            let text= $(this).siblings(".task").val();
-            let time= $(this).parent().attr("id");
+            //setting data input to the save button
+
     // Setting items (input text and time) into local storage
             localStorage.setItem(time, text);
         })
-    // Retrieving items from local storage
+    // Retrieving value from each hour from local storage
         $("#hour0 .task").val(localStorage.getItem(hour0));
         $("#hour1 .task").val(localStorage.getItem(hour1));
         $("#hour2 .task").val(localStorage.getItem(hour2));
